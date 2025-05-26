@@ -4,7 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Схема из Кыргызстана</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #151515;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .container {
+      max-width: 500px;
+      padding: 20px;
+    }
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .highlight {
+      color: #ffcc00;
+    }
+    p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #ff4300;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 20px 0;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #e63400;
+    }
+    .spots {
+      color: #ccc;
+      font-size: 14px;
+    }
+    .timer {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ffcc00;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -13,8 +69,28 @@
     <p>Тысячи учеников уже применяют её и зарабатывают</p>
     <p><span class="highlight">Бесплатное обучение</span> без паспорта, без вложений</p>
     <p>Работает с телефона. Всего 10–15 минут в день</p>
-    <a href="https://t.me/+82TDo28t-ZcxYTZl" class="btn" target="_blank">Перейти в Telegram</a>
+    <a href="https://t.me/+VI-uDU7GNVQyZGQ1" class="btn" target="_blank" rel="noopener noreferrer">Перейти в Telegram</a>
     <p class="spots">Осталось 17 мест на май</p>
+    <div class="timer" id="timer">00:10:00</div>
   </div>
+
+  <script>
+    let timerElement = document.getElementById("timer");
+    let seconds = 600; // 10 минут
+
+    function updateTimer() {
+      let mins = Math.floor(seconds / 60);
+      let secs = seconds % 60;
+      timerElement.textContent = 
+        (mins < 10 ? "0" + mins : mins) + ":" + 
+        (secs < 10 ? "0" + secs : secs);
+      if (seconds > 0) {
+        seconds--;
+        setTimeout(updateTimer, 1000);
+      }
+    }
+
+    updateTimer();
+  </script>
 </body>
 </html>
